@@ -1,0 +1,24 @@
+server:
+  port: 8080
+---
+spring:
+  application:
+    name: customer
+  datasource:
+    password: ${DB_PASSWORD:${env.DB_PASSWORD}}
+    url: jdbc:postgresql://localhost:5432/customer
+    username: ${DB_USERNAME:${env.DB_USERNAME}}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+#  zipkin:
+#    base-url: http://localhost:9411
+#  rabbitmq:
+#    addresses: localhost:5672
+#  profiles:
+#    active: default
